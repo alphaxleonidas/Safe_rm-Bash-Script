@@ -1,5 +1,5 @@
 # Safe_rm Bash Script
-Bash script to prevent accidental deletion of certain important
+Bash script to prevent accidental deletion of certain important directories.
 
 # Safe-rm Installation
 This is the safe-rm wrappper available in the apt package manager and is unrelated to my project.
