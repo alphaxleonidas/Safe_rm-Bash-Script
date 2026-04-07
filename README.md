@@ -1,4 +1,4 @@
-# Safe_rm Bash Script
+# Safe_rm Bash Script (work in progress)
 Bash script to prevent accidental deletion of certain important directories.
 
 # Safe-rm Installation
@@ -89,4 +89,5 @@ Now the script is disabled.
 
 1. Using ```sudo``` with the command causes both this script and ```safe-rm``` to not function. Hence, AVOID using ```sudo```.
 2. For confirmation, you have to press ```y``` and then hit enter. It's how the ```rm -i``` command works.
-3. Does not detect the actual pathway but only detects what is written in the argument of the command. For example, if you added ```/home/username/test*``` to the script, the script will only detect the test directory if all of it is mentioned like this. Running ```cd ~``` and ```rm -r test``` will delete the folder. To prevent that use ```test*``` in the script  
+3. Does not detect the actual pathway but only detects what is written in the argument of the command. For example, if you added ```/home/username/test*``` to the script, the script will only detect the test directory if all of it is mentioned like this. Running ```cd ~``` and ```rm -r test``` will delete the folder. To prevent that use ```test*``` in the script. Still revieweing the criteria.
+4. This script is very tricky to apply. You might have to comment out the script and then reapply the script. 
