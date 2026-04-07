@@ -30,4 +30,4 @@ safe_rm() {
     fi
 }
 alias rm='safe_rm'
-alias \rm='safe_rm'
+#alias \rm='safe_rm'
