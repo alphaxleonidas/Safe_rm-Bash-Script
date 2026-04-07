@@ -8,8 +8,7 @@ safe_rm() {
             -*f*) dangerous=true ;;
             / | /. | /* | /*/* | \
             /etc* | /bin* | /sbin* | /usr* | /var* | \
-            /tmp* | /dev* | /proc* | /sys* | \
-            ~ | ~/* | /\\.\\. | \\.\\./* | /*\\.\\.)
+            /tmp* | /dev* | /proc* | /sys* | \ | /\\.\\. | \\.\\./* | /*\\.\\.)
                 critical=true ;;
             -*r*) recursive=true ;;
         esac
@@ -24,12 +23,16 @@ safe_rm() {
 
     # Block critical paths
     if [ "$critical" = true ]; then
-        echo "⚠️  Critical directory/path detected. Operation Blocked."
+        echo "⚠️  Critical directory detected. Operation Blocked."
         return 1
     fi
 
+    if [ $"recursive" = true ]; then
+    echo "You are deleting a DIRECTORY. Are you sure? (y/N)"
+    else
     # Interactive confirmation prompt (reusable)
-    echo "You are deleting. Are you sure? (y/N)"
+    echo "You are deleting a file. Are you sure? (y/N)"
+    fi
     read -r answer
     if [ "$answer" != "y" ] && [ "$answer" != "Y" ]; then
         echo "Aborted."
