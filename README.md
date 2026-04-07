@@ -8,12 +8,11 @@ sudo apt install safe-rm
 ```
 This allows certain directories to be safe from ```rm``` command.
 
-To edit the directories:
-For user:
+To edit the directories: (user)
 ```
 nano ~/.safe-rm
 ```
-For System-wide:
+To edit the directories: (System-wide)
 ```
 sudo nano /etc/safe-rm.conf
 ```
