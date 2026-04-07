@@ -10,10 +10,10 @@ This allows certain directories to be safe from ```rm``` command.
 
 To edit the directories:
 ```
-nano ~/.safe-rm
+nano ~/.safe-rm  //user
 ```
 ```
-sudo nano /etc/safe-rm.conf
+sudo nano /etc/safe-rm.conf //system-wide
 ```
 Add your desired directory/path/file.
 
