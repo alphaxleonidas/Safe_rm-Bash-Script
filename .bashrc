@@ -44,4 +44,3 @@ safe_rm() {
 }
 alias rm='safe_rm'
 alias \rm='safe_rm'
-alias /bin/rm='safe_rm'
