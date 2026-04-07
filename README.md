@@ -34,7 +34,7 @@ safe_rm() {
     for arg in "$@"; do
         case "$arg" in
             -*f*) dangerous=true ;;  # Catches -f, -rf, -fr, etc.
-        / | /. | /* | /*/* | /etc* | /bin* | /sbin* | /usr* | /var* | /tmp* | /dev* | /proc* | /sys* | ~/* | ~ | /\.\. | \.\./* | /*\.\.)
+        / | /. | /* | /*/* | /etc* | /bin* | /sbin* | /usr* | /var* | /tmp* | /dev* | /proc* | /sys* | test*| ~/* | ~ | /\.\. | \.\./* | /*\.\.)
             critical=true ;;
         esac
     done
@@ -71,3 +71,4 @@ source ~/.bashrc
 
 1. Using ```sudo``` with the command causes both this script and ```safe-rm``` to not function. Hence, AVOID using ```sudo```.
 2. For confirmation, you have to press ```y``` and then hit enter. It's how the ```rm -i``` command works.
+3. Does not detect the actual pathway but only detects what is written in the argument of the command. For example, if you added ```/home/username/test*``` to the script, the script will only detect the test directory if all of it is mentioned like this. Running ```cd ~``` and ```rm -r test``` will delete the folder. To prevent that use ```test*``` in the script  
