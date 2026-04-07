@@ -6,9 +6,9 @@ safe_rm() {
     for arg in "$@"; do
         case "$arg" in
             -*f*) dangerous=true ;;
-            / | /. | /* | /*/* | \
-            /etc* | /bin* | /sbin* | /usr* | /var* | \
-            /tmp* | /dev* | /proc* | /sys* | \ | /\\.\\. | \\.\\./* | /*\\.\\.)
+            / | /. | /* | /*/* | \\
+            /etc* | /bin* | /sbin* | /usr* | /var* | \\
+            /tmp* | /dev* | /proc* | /sys* | \\ | /\\\\.\\\\. | \\\\.\\\\./* | /*\\\\.\\\\.)
                 critical=true ;;
             -*r*) recursive=true ;;
         esac
@@ -17,7 +17,7 @@ safe_rm() {
     # Block dangerous flags
     if [ "$dangerous" = true ]; then
         echo "⚠️  Dangerous flag (-f) detected. Operation Blocked."
-        echo "   Use: rm, rm -r, or safe_rm instead."
+        echo "   Use plain rm, rm -r, or safe_rm instead."
         return 1
     fi
 
@@ -52,6 +52,9 @@ safe_rm() {
         "$rm_cmd" "$@" && echo "Completed." || return 1
     fi
 }
+
+alias rm='safe_rm'
+#alias \\rm='safe_rm'
 
 alias rm='safe_rm'
 #alias \rm='safe_rm'
