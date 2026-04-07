@@ -11,7 +11,8 @@ This allows certain directories to be safe from ```rm``` command.
 To edit the directories:
 ```
 nano ~/.safe-rm
-
+```
+```
 nano /etc/safe-rm.conf
 ```
 Add your desired directory/path/file.
