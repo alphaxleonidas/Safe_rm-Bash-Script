@@ -66,6 +66,24 @@ Now to make it active:
 source ~/.bashrc
 ```
 
+# Disabling the script
+
+To disable it: 
+
+```
+nano ~/.bashrc
+```
+
+Add this in a line above the script:
+```
+: <<'COMMENT'
+```
+And this in a line after the script:
+```
+COMMENT
+```
+
+Now the script is disabled.
 
 # Caveats/Isuues
 
