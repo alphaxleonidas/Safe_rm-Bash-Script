@@ -5,14 +5,14 @@ safe_rm() {
     for arg in "$@"; do
         case "$arg" in
             -*f*) dangerous=true ;;  # Catches -f, -rf, -fr, etc.
-        / | /. | /* | /*/* | /etc* | /bin* | /sbin* | /usr* | /var* | /tmp* | /dev* | /proc* | /sys* | test* | ~ | ~/* | /\.\. | \.\./* | /*\.\.)
+        / | /. | /* | /*/* | /etc* | /bin* | /sbin* | /usr* | /var* | /tmp* | /dev* | /proc* | /sys* | test* | $HOME | /\.\. | \.\./* | /*\.\.)
             critical=true ;;
         esac
     done
 
     if [ "$dangerous" = true ]; then
         echo "⚠️  Dangerous flag (-f*) detected. Operation Blocked."
-        echo "   Use: rm, rm -r, or safe-rm instead."
+        echo "   Use: rm, rm -r, safe-rm or safe-rm -r instead."
         return 1  # Exit with error (abandons command)
     fi
     if [ "$critical" = true ]; then
