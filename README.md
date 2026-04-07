@@ -17,7 +17,7 @@ nano /etc/safe-rm.conf
 ```
 Add your desired directory/path/file.
 
-# Safe_rm Bash script Installation
+# Safe_rm Bash script Configuration
 
 ```
 nano ~/.bashrc
