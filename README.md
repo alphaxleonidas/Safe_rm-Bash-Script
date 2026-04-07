@@ -9,12 +9,15 @@ sudo apt install safe-rm
 This allows certain directories to be safe from ```rm``` command.
 
 To edit the directories:
+For user:
 ```
-nano ~/.safe-rm  #user
+nano ~/.safe-rm
 ```
+For System-wide:
 ```
-sudo nano /etc/safe-rm.conf #system-wide
+sudo nano /etc/safe-rm.conf
 ```
+
 Add your desired directory/path/file.
 
 # Safe_rm Bash script Configuration
@@ -58,7 +61,6 @@ safe_rm() {
 }
 alias rm='safe_rm'
 alias \rm='safe_rm'
-alias /bin/rm='safe_rm'
 ```
 Now to make it active:
 ```
