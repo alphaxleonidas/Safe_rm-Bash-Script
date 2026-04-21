@@ -3,11 +3,13 @@
 safe_rm() {
     local dangerous=false
     local critical=false
+    local recursive=false
     for arg in "$@"; do
         case "$arg" in
             -*f*) dangerous=true ;;  # Catches -f, -rf, -fr, etc.
         /. | /* | /*/* | /etc* | /bin* | /sbin* | /usr* | /var* | /tmp* | /dev* | /proc* | /sys* | newtest | BTRFSdrive* | NTFSdrive | Documents | Videos | Pictures | /\.\. | \.\./* | /*\.\.)
             critical=true ;;
+        -*r*) recursive=true ;;
         esac
     done
 
@@ -19,6 +21,9 @@ safe_rm() {
     if [ "$critical" = true ]; then
         echo "⚠️  Critical Directory detected. Operation Blocked."
         return 1  # Exit with error (abandons command)
+    fi
+    if [ "$recursive" = true ]; then
+        echo "⚠️  You are about to delete a directory."
     fi
 
 
@@ -33,4 +38,3 @@ safe_rm() {
 alias rm='safe_rm'
 # alias \rm='safe_rm'
 
-```
