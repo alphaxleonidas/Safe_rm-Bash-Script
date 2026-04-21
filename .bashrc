@@ -21,7 +21,6 @@ safe_rm() {
         return 1  # Exit with error (abandons command)
     fi
     if [ "$recursive" = true ]; then
-        echo "⚠️  You are about to delete a directory."
 
         echo -n "⚠️  You are about to delete a directory. Confirm deletion? (y/N): "
         read answer
