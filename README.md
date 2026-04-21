@@ -85,6 +85,10 @@ And this in a line after the script:
 ```
 COMMENT
 ```
+Activate the new .bashrc
+```
+source .bashrc
+```
 
 Now the script is disabled.
 
