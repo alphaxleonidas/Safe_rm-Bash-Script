@@ -88,7 +88,7 @@ COMMENT
 
 Now the script is disabled.
 
-# Caveats/Isuues
+# Caveats/Issues
 
 1. Using ```sudo``` with the command causes both this script and ```safe-rm``` to not function. Hence, AVOID using ```sudo```.
 2. For confirmation, you have to press ```y``` and then hit enter. It's how the ```rm -i``` command works.
