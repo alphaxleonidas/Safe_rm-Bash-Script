@@ -47,7 +47,7 @@ safe_rm() {
                 read answer
         case "${answer,,}" in
             y|yes)
-                command safe-rm -r "$@"
+                command safe-rm "$@"
                 echo "File deleted."
                 return 0
                 ;;
