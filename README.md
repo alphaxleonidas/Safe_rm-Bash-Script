@@ -28,13 +28,15 @@ nano ~/.bashrc
 Add these lines:
 
 ```
+# New function. replaces rm -f with failed output
+
 safe_rm() {
     local dangerous=false
     local critical=false
     for arg in "$@"; do
         case "$arg" in
             -*f*) dangerous=true ;;  # Catches -f, -rf, -fr, etc.
-        / | /. | /* | /*/* | /etc* | /bin* | /sbin* | /usr* | /var* | /tmp* | /dev* | /proc* | /sys* | test* | * | ~ | ~/* | /\.\. | \.\./* | /*\.\.)
+        /. | /* | /*/* | /etc* | /bin* | /sbin* | /usr* | /var* | /tmp* | /dev* | /proc* | /sys* | newtest | BTRFSdrive* | NTFSdrive | Documents | Videos | Pictures | /\.\. | \.\./* | /*\.\.)
             critical=true ;;
         esac
     done
@@ -53,13 +55,14 @@ safe_rm() {
     # All other cases: use rm -i (interactive)
     echo "ℹ️  Using rm -i (interactive mode)..."
     if command -v safe-rm >/dev/null 2>&1; then
-        echo "Confirm deletion?(y/N), note: ignore if file/directory absent" && command safe-rm -i "$@"
+        echo "                                     Confirm deletion?(y/N)" && command safe-rm -i "$@" 
     else
-        echo "Confirm deletion?(y/N), note: ignore if file/directory absent" && command rm -i "$@"
+        echo "                                     Confirm deletion?(y/N)" && command rm -i "$@"
     fi
 }
 alias rm='safe_rm'
-alias \rm='safe_rm'
+# alias \rm='safe_rm'
+
 ```
 Now to make it active:
 ```
@@ -89,5 +92,5 @@ Now the script is disabled.
 
 1. Using ```sudo``` with the command causes both this script and ```safe-rm``` to not function. Hence, AVOID using ```sudo```.
 2. For confirmation, you have to press ```y``` and then hit enter. It's how the ```rm -i``` command works.
-3. Does not detect the actual pathway but only detects what is written in the argument of the command. For example, if you added ```/home/username/test*``` to the script, the script will only detect the test directory if all of it is mentioned like this. Running ```cd ~``` and ```rm -r test``` will delete the folder. To prevent that use ```test*``` in the script. Still revieweing the criteria.
-4. This script is very tricky to apply. You might have to comment out the script and then reapply the script. 
+3. May not detect the actual pathway as it only detects what is written in the argument of the command. For example, if you added ```/home/username/test*``` to the script, the script will only detect the test directory if all of it is mentioned like this. Running ```cd ~``` and ```rm -r test``` will delete the folder. To prevent that use ```test*``` in the script. Still revieweing the criteria.
+4. This script is very tricky to apply. You might have to comment out the script and then restart. 
