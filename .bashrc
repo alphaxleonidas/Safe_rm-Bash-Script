@@ -22,7 +22,7 @@ safe_rm() {
     fi
     if [ "$recursive" = true ]; then
 
-        echo -n "⚠️  You are about to delete a directory. Confirm deletion? (y/N): "
+        echo -n "⚠️  You are about to delete a directory. Confirm deletion? [y/N]: "
         read answer
         case "${answer,,}" in
             y|yes)
@@ -42,7 +42,7 @@ safe_rm() {
 #    echo "ℹ️  Using interactive mode"
  
     if command -v safe-rm >/dev/null 2>&1; then
-        echo -n " Confirm deletion?(y/N)"
+        echo -n " Confirm deletion? [y/N]: "
                 read answer
         case "${answer,,}" in
             y|yes)
@@ -56,7 +56,7 @@ safe_rm() {
                 ;;
           esac
     else
-        echo -n " Confirm deletion?(y/N)"
+        echo -n " Confirm deletion? [y/N]: "
                 read answer
         case "${answer,,}" in
             y|yes)
