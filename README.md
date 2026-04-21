@@ -36,7 +36,7 @@ safe_rm() {
     for arg in "$@"; do
         case "$arg" in
             -*f*) dangerous=true ;;  # Catches -f, -rf, -fr, etc.
-        /. | /* | /*/* | /etc* | /bin* | /sbin* | /usr* | /var* | /tmp* | /dev* | /proc* | /sys* | newtest | BTRFSdrive* | NTFSdrive | Documents | Videos | Pictures | /\.\. | \.\./* | /*\.\.)
+        /. | /* | /*/* | /etc* | /bin* | /sbin* | /usr* | /var* | /tmp* | /dev* | /proc* | /sys* | Documents | Videos | Pictures | /\.\. | \.\./* | /*\.\.)
             critical=true ;;
         esac
     done
