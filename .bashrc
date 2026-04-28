@@ -41,21 +41,22 @@ safe_rm() {
     # All other cases: use rm -i (interactive)
 #    echo "ℹ️  Using interactive mode"
  
-    if command -v safe-rm >/dev/null 2>&1; then
-        echo -n " Confirm deletion? [y/N]: "
-                read answer
-        case "${answer,,}" in
-            y|yes)
-                command safe-rm -v "$@"
-                #echo "File deleted."
-                return 0
-                ;;
-            *)
-                echo "Deletion cancelled."
-                return 1
-                ;;
-          esac
-    else
+#    if command -v safe-rm >/dev/null 2>&1; then
+#        echo -n " Confirm deletion? [y/N]: "
+#                read answer
+#        case "${answer,,}" in
+#            y|yes)
+#                command safe-rm -v "$@"
+#                #echo "File deleted."
+#                return 0
+#                ;;
+#            *)
+#                echo "Deletion cancelled."
+#                return 1
+#                ;;
+#          esac
+#    else
+
         echo -n " Confirm deletion? [y/N]: "
                 read answer
         case "${answer,,}" in
