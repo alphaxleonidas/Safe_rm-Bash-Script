@@ -26,7 +26,7 @@ safe_rm() {
         read answer
         case "${answer,,}" in
             y|yes)
-                command rm -r -i "$@"
+                command rm -r -i -v "$@"
                 echo "Directory deleted."
                 return 0
                 ;;
@@ -46,7 +46,7 @@ safe_rm() {
                 read answer
         case "${answer,,}" in
             y|yes)
-                command safe-rm "$@"
+                command safe-rm -v "$@"
                 echo "File deleted."
                 return 0
                 ;;
@@ -60,7 +60,7 @@ safe_rm() {
                 read answer
         case "${answer,,}" in
             y|yes)
-                command rm "$@"
+                command rm -v "$@"
                 echo "File deleted."
                 return 0
                 ;;
