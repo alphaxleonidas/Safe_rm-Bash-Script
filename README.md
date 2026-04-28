@@ -55,9 +55,9 @@ safe_rm() {
     # All other cases: use rm -i (interactive)
     echo "ℹ️  Using rm -i (interactive mode)..."
     if command -v safe-rm >/dev/null 2>&1; then
-        echo "                                     Confirm deletion?(y/N)" && command safe-rm -i "$@" 
+        echo "                                     Confirm deletion?(y/N)" && command safe-rm -i -v "$@" 
     else
-        echo "                                     Confirm deletion?(y/N)" && command rm -i "$@"
+        echo "                                     Confirm deletion?(y/N)" && command rm -i -v "$@"
     fi
 }
 alias rm='safe_rm'
