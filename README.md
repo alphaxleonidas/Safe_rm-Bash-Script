@@ -24,6 +24,11 @@ Add your desired directory/path/file.
 # Safe_rm Bash script Configuration
 
 ```
+echo $SHELL
+```
+output: /bin/bash
+
+```
 nano ~/.bashrc
 ```
 
