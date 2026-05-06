@@ -31,8 +31,8 @@ output: /bin/bash
 ```
 cd ~
 git clone https://github.com/alphaxleonidas/Safe_rm-Bash-Script/
-rm -r Safe_rm-Bash-Script/backups
-cp -r Safe_rm-Bash-Script/* ~/
+rm -rv Safe_rm-Bash-Script/backups
+cp -rv Safe_rm-Bash-Script/* ~/
 source ~/.bashrc
 ```
 This will activate the script.
