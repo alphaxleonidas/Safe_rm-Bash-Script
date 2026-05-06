@@ -26,13 +26,13 @@ Add your desired directory/path/file.
 ```
 echo $SHELL
 ```
-output: /bin/bash
+if output: /bin/bash , proceed with:
 
 ```
 cd ~
 git clone https://github.com/alphaxleonidas/Safe_rm-Bash-Script/
-rm -rv Safe_rm-Bash-Script/backups
-cp -rv Safe_rm-Bash-Script/* ~/
+cp -rv Safe_rm-Bash-Script/.bashrc ~/
+rm -rv Safe_rm-Bash-Script
 source ~/.bashrc
 ```
 This will activate the script.
