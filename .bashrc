@@ -1,7 +1,11 @@
 safe_rm() {
+    
     local dangerous=false
     local critical=false
     local recursive=false
+
+# Defining dangerous, critical, and recursive flags:
+
     for arg in "$@"; do
         case "$arg" in
             -*f*) dangerous=true ;;  # Catches -f, -rf, -fr, etc.
@@ -11,15 +15,23 @@ safe_rm() {
         esac
     done
 
+# Dangerous Flag:
+
     if [ "$dangerous" = true ]; then
         echo "⚠️  Dangerous flag (-f*) detected. Operation Blocked."
         echo "   Use: rm, rm -r, or safe-rm instead."
-        return 1  # Exit with error (abandons command)
+        return 1  # Exit with error
     fi
+
+# Critical Flag:
+
     if [ "$critical" = true ]; then
         echo "⚠️  Critical Directory detected. Operation Blocked."
-        return 1  # Exit with error (abandons command)
+        return 1  # Exit with error
     fi
+
+# Recursive Flag:
+
     if [ "$recursive" = true ]; then
 
         echo -n "⚠️  You are about to delete a directory. Confirm deletion? [y/N]: "
@@ -35,6 +47,9 @@ safe_rm() {
                 ;;
        esac
     fi
+
+# Rest of the situations:
+
         echo -n " Confirm deletion? [y/N]: "
                 read answer
         case "${answer,,}" in
@@ -48,6 +63,10 @@ safe_rm() {
                 ;;
           esac
 }
+# script ends
+
+# Aliases:
+
 alias rm='safe_rm'
 # alias \rm='safe_rm'
 
