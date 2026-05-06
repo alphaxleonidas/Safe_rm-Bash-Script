@@ -33,13 +33,9 @@ cd ~
 git clone https://github.com/alphaxleonidas/Safe_rm-Bash-Script/
 rm -r Safe_rm-Bash-Script/backups
 cp -r Safe_rm-Bash-Script/* ~/
-
-```
-
-Now to make it active:
-```
 source ~/.bashrc
 ```
+This will activate the script.
 
 # Disabling the script
 
