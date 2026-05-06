@@ -70,5 +70,5 @@ safe_rm() {
 # Aliases:
 
 alias rm='safe_rm'
-# alias \rm='safe_rm'
+alias \rm='safe_rm'
 
