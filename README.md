@@ -1,7 +1,7 @@
-# Safe_rm Bash Script
+# safe_rm Bash Script
 Bash script to prevent accidental deletion of certain important directories.
 
-For Fish Script, use : [safe_rm-Fish-Script](https://github.com/alphaxleonidas/Safe_rm-Fish-Script)
+For Fish Script, use : [safe_rm-Fish-Script](https://github.com/alphaxleonidas/safe_rm-Fish-Script)
 
 # Safe-rm Installation
 This is the safe-rm wrappper available in the apt package manager and is unrelated to my project.
@@ -21,7 +21,7 @@ sudo nano /etc/safe-rm.conf
 
 Add your desired directory/path/file.
 
-# Safe_rm Bash script Configuration
+# safe_rm Bash script Configuration
 
 ```
 echo $SHELL
@@ -30,9 +30,9 @@ if output: /bin/bash , proceed with:
 
 ```
 cd ~
-git clone https://github.com/alphaxleonidas/Safe_rm-Bash-Script/
-cp -rv Safe_rm-Bash-Script/.bashrc ~/
-rm -rv Safe_rm-Bash-Script
+git clone https://github.com/alphaxleonidas/safe_rm-Bash-Script/
+cp -rv safe_rm-Bash-Script/.bashrc ~/
+rm -rv safe_rm-Bash-Script
 source ~/.bashrc
 ```
 This will activate the script.
