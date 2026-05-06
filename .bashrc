@@ -1,5 +1,7 @@
 safe_rm() {
-    
+
+# Creating local flags for case classification:
+
     local dangerous=false
     local critical=false
     local recursive=false
